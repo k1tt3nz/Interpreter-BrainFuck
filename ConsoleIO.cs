@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Interpreter_BrainFuck
 {
+    /// <summary>
+    /// Управление вводом\выводом в консоль
+    /// </summary>
     public class ConsoleIO
     {
-        
-
         public static void StartingConsole()
         {
             _initializingSettings();
@@ -49,7 +50,7 @@ namespace Interpreter_BrainFuck
             switch (command)
             {
                 case "exit": Environment.Exit(0);break;
-                case "next": _new();break;
+                case "next": Buffer.ResetMem(); _new();break;
             }
         }
 

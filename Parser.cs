@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Interpreter_BrainFuck
+﻿namespace Interpreter_BrainFuck
 {
+    /// <summary>
+    /// Перебирает исходный код на BrainFuck
+    /// </summary>
     public class Parser
     {
         public static void ParseCode()

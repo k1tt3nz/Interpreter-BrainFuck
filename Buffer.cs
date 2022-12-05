@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Interpreter_BrainFuck.Buffer;
-
-namespace Interpreter_BrainFuck
+﻿namespace Interpreter_BrainFuck
 {
+    /// <summary>
+    /// Хранит и обрабатывает исходный код BrainFuck
+    /// </summary>
     static public class Buffer
     {
         static string? userCodeBF;
@@ -18,27 +14,16 @@ namespace Interpreter_BrainFuck
 
         static private void _inputCode() => userCodeBF = Console.ReadLine();
 
-        static public void OutputInterpretations() => _outputMem();
-
-        static private void _outputMem() => Console.WriteLine(userCodeBF);
-
         static public string PutUserCode() => _returnUserCodeBF();
 
         static private string _returnUserCodeBF() { return userCodeBF; }
 
+        static public void ResetMem() => Memory.ResetMem();
 
-        /*static public void Empty()
-        {
-            if (_isCodeEmpty()) Console.WriteLine("Пустя строка ввода");
 
-            InitCode();
-        }
-
-        static private bool _isCodeEmpty()
-        {
-            return userCodeBF == null ? true : false;
-        }*/
-
+        /// <summary>
+        /// Выполняет команды языка Brainfuck, записанные в буфере памяти по указателю ptr.
+        /// </summary>
         static public class Memory
         {
             static public void MovForward() { ptr++; }                                                // >
@@ -81,8 +66,13 @@ namespace Interpreter_BrainFuck
                     }
                 }
             }
-        }
 
+            static public void ResetMem() => _resetMemoryBuffer();
+            static private void _resetMemoryBuffer()
+            {
+                memory = new char[30000];
+            }
+        }
     }
 }
 

@@ -26,9 +26,6 @@ namespace Interpreter_BrainFuck
 
         static private string _returnUserCodeBF() { return userCodeBF; }
 
-        static public int GetLvlNesting() { return lvlNesting; }
-        static public void LvlNestingAdd() { lvlNesting++; }
-        static public void LvlNestingReduce() { lvlNesting--; }
 
         /*static public void Empty()
         {

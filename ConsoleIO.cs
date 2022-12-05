@@ -15,8 +15,7 @@ namespace Interpreter_BrainFuck
             _initializingSettings();
             _printLogo();
             _printNickname();
-            _inputBFCode();
-            Parser.ParseCode();
+            _new();
         }
 
         private static void _initializingSettings()
@@ -34,9 +33,24 @@ namespace Interpreter_BrainFuck
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        private static void _outputInterpretedСode()
+        private static void _new()
         {
-            Buffer.OutputInterpretations();
+            _inputBFCode();
+            Parser.ParseCode();
+
+            _nextCommand();
+        }
+
+        private static void _nextCommand()
+        {
+            Console.WriteLine();
+            string command = Console.ReadLine();
+            command.ToLower();
+            switch (command)
+            {
+                case "exit": Environment.Exit(0);break;
+                case "next": _new();break;
+            }
         }
 
         private static void _printLogo()
